@@ -4,5 +4,5 @@ import os
 
 load_dotenv()
 
-client = MongoClient(os.getenv("url"))
-db = client.get_database("clase")
+client = MongoClient(os.getenv("URL"))
+db = client.get_database("barcelona")
