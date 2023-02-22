@@ -5,7 +5,7 @@ from data.graph import bar_plot
 
 
 st.title('BARCELONA DASHBOARD')
-st.image('./barcelona.png')
+st.image('./barcelona_5.png')
 
 year = 2017
 district_population = get_district(year)
