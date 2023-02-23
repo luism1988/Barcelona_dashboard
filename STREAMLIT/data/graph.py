@@ -3,23 +3,28 @@
 #import plotly_express as px
 import matplotlib.pyplot as plt
 import folium
+import seaborn as sns
+def bar_plot(df):
+    plt.figure(figsize=(15,6))
+    fig, ax = plt.subplots()
+    sns.countplot(data=df, x='District.Name',hue="Year") # tambien se puede estratificar por genero hue="Gender"
+    plt.xticks(rotation=45)
+    return fig
 
 
-#def bar_plot(x,y):
-#    plt.figure(figsize=(12,6))
-#    plt.bar(x, y)
-#    plt.show()
-def bar_plot(x,y):
+
+
+"""def bar_plot(x,y):
     plt.figure(figsize=(15,6))
     fig, ax = plt.subplots()
     ax.bar(x, y)
     plt.xticks(rotation=75)
     return fig
-
-def district_map(dic:dict):
+"""
+def district_map(dic):
     m = folium.Map(location=[41.38879, 2.15899], zoom_start=12)
-    for dist in dict:
-        folium.Marker(location= [dist["coordinates"][0],dist["coordinates"][0]], tooltip=dist["Name"]).add_to(m)
+    for dist in dic:
+        folium.Marker(location= dist["coordinates"], tooltip=dist["Name"]).add_to(m)
     return m 
 
 

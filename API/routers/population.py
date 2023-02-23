@@ -8,13 +8,27 @@ router = APIRouter()
 def resultado(res):
      return loads(json_util.dumps(res))
 
-@router.get("/district/{year}")
+@router.get("/districts/{year}")
 def get_district(year):
     population = db.population
     pipeline = [
     {"$match": {"Year": {"$eq":year}}},
     {"$unwind": "$District"},
-    {"$project":{"_id":0, "District.Name":1, "Number":1}}
+    {"$project":{"_id":0}}
+    ]
+    unwind_population = list(population.aggregate(pipeline))
+    res = unwind_population
+  
+    return resultado(res)
+
+
+@router.get("/districts2/{year}")
+def get_district(year):
+    population = db.population
+    pipeline = [
+    {"$match": {"Year": {"$eq":year}}},
+    {"$unwind": "$District"},
+    {"$project":{"_id":0}}
     ]
     unwind_population = list(population.aggregate(pipeline))
     res = unwind_population
