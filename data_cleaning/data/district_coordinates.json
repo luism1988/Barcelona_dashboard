@@ -1,0 +1,12 @@
+[
+{"Name":"Ciutat Vella","coordinates": [41.38022, 2.17319]},
+{"Name":"Sants-Montjuïc","coordinates": [41.37263, 2.1546]},
+{"Name":"Eixample","coordinates": [41.38896, 2.16179]},
+{"Name":"Les Corts","coordinates": [41.38845,2.12171]},
+{"Name":"Sarrià-Sant Gervasi","coordinates": [41.40237, 2.15641]},
+{"Name":"Gràcia","coordinates": [41.40237, 2.15641]},
+{"Name":"Horta-Guinardó","coordinates": [41.41849, 2.1677]},
+{"Name":"Nou Barris","coordinates": [41.44163, 2.17727]},
+{"Name":"Sant Andreu","coordinates": [41.43541, 2.18982]},
+{"Name":"Sant Martí","coordinates": [41.41814, 2.19933]}
+]

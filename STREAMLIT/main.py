@@ -1,8 +1,10 @@
 import streamlit as st
 import streamlit.components.v1 as components
-from data.get_data import get_district
-from data.graph import bar_plot
 
+
+from data.get_data import get_district, get_district_coordinates
+from data.graph import bar_plot, district_map
+from streamlit_folium import folium_static
 
 st.title('BARCELONA DASHBOARD')
 st.image('./barcelona_5.png')
@@ -23,9 +25,10 @@ y = []
 for element in district_dict:
     x.append(element)
     y.append(district_dict[element])
-
-print(x,y)
-
 graph= bar_plot(x,y)
-
 st.pyplot(graph)
+
+
+coordinates_dict = get_district_coordinates()
+map_district = district_map(coordinates_dict)
+folium_static(map_district)
