@@ -1,11 +1,12 @@
 from fastapi import FastAPI
-from routers import population, district_coordinates
+from routers import coordinates,population
+
 
 app = FastAPI()
 
 
 app.include_router(population.router)
-app.include_router(district_coordinates.router)
+app.include_router(coordinates.router)
 
 @app.get("/")
 def principal():
