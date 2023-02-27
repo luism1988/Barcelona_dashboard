@@ -1,10 +1,12 @@
+import pandas as pd
+
 def df_format_fixer(df):
     distritos = []
     poblacion = []
     Gender = []
     columns = ["District","Population","Gender"]
     for i in df["Number"]:
-        poblacion.append(i)
+        poblacion.append(int(i))
     for i in df["District"]: 
         distritos.append(i["Name"])
     for i in df["Gender"]: 

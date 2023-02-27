@@ -10,10 +10,10 @@ def resultado(res):
 
 @router.get("/district/map")
 def get_coordinates_districts():
-    #coordinates_districts = db.coordinates_districts
-    filt = {}
-    project ={"_id":0,"Name":1,"coordinates":1}
-    res = db["coordinates_districts"].find(filt,project)
+    coordinates_districts = db.coordinates_districts
+    #filt = {}
+    #project ={"_id":0,"Name":1,"latitude":1,"Longitude":1}
+    res = list(coordinates_districts.find({}))
     resultado(res)
 
 
