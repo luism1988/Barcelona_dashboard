@@ -14,7 +14,7 @@ def get_district(year):
     population = db.population
     pipeline = [
     {"$match": {"Year": {"$eq":year}}},
-    {"$project":{"_id":0, "Year":1, "District":1, "Gender":1, "Number":1,}}
+    {"$project":{"_id":0, "Year":1, "District":1, "Neighborhood":1, "Gender":1, "Number":1,}}
     ] 
     res= list(population.aggregate(pipeline))
     return resultado(res)
@@ -24,7 +24,7 @@ def get_neighborhood(year):
     population = db.population
     pipeline = [
     {"$match": {"Year": {"$eq":year}}},
-    {"$project":{"_id":0, "Year":1, "Neighborhood":1, "Gender":1, "Number":1,}}
+    {"$project":{"_id":0, "Year":1,"District":1, "Neighborhood":1, "Gender":1, "Number":1,}}
     ] 
     res= list(population.aggregate(pipeline))
     return resultado(res)
