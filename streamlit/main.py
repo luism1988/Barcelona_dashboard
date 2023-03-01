@@ -1,94 +1,106 @@
 import streamlit as st
-import streamlit.components.v1 as components
 import pandas as pd
 
 from data.get_data import get_all, get_district_coordinates , get_neighborhood_coordinates
 from data.graph import  map_plot, bar_plot
+from data.funtions import df_format_fixer, get_coordenates,convert_df
 from streamlit_folium import folium_static
-from  funtions import df_format_fixer, get_coordenates,convert_df
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 
+# create sidebar with four "pages": ["Population and location by District","Population and location by Neighborhood" ,"Transports","About"]
 with st.sidebar:
-    sidebar_selection = st.radio('Select one:', ["Population and location by District","Population and location by Neighborhood" ,"Transports","About"])
+    sidebar_selection = st.radio('Navigation', ["Population and location by District","Population and location by Neighborhood" ,"Transports","About"])
+
+#page one: show Population and location by District
 if sidebar_selection == "Population and location by District":
 
-    st.title('BARCELONA DASHBOARD')
-    st.image('./barcelona_5.png')
+    #Title and header image 
+    st.markdown("<h1 style='text-align: center; color: black;'>BARCELONA DASHBOARD</h1>", unsafe_allow_html=True)
 
-    year = st.slider('Pick a number', 2013, 2017)
-    #selection = st.selectbox('Pick one', ["Select","District", "Neighborhood"])
+    st.image('./images/barcelona_5.png')
 
-    df = pd.DataFrame(get_all(year))
-    df_format = df_format_fixer(df)
+    #slider for select data year
+    year = st.slider('Select data year:', 2013, 2017)
+    df = pd.DataFrame(get_all(year)) #function get_all get query from the API
+    df_format = df_format_fixer(df) # the function "df_format_fixe"  transforms the data in the dataset to be plotted
 
-    #if selection == "District":
-    st.text("A continuación puedes ver la población de los diferentes distritos de Barcelona y su ubicacion en el mapa")
-    stratify = st.radio('Pick a stratify', [None,'Gender', 'Age'])
-        
+    #description of the results
+    st.text("Barcelona population by districts:")
+    #slider for select variable to stratify
+    stratify = st.radio('Stratify by:', [None,'Gender', 'Age'])
+
+    #data plot    
     fig= bar_plot(df_format,a="District",b="Population",c=stratify)
-    plt.savefig("District.png")
     st.pyplot(fig)
     
+    #data download
     st.download_button('Download data', convert_df(df_format),file_name="District_data.csv")
-    with open("District.png", "rb") as file:
+    with open("picture.png", "rb") as file:
         btn = st.download_button(
         label="Download graph",
         data=file,
         file_name="District.png",
         )
 
-           
-    coordinates_dict= get_district_coordinates()
-    map_district = map_plot(get_coordenates(coordinates_dict))
+    #map plot   
+    st.text("Barcelona districts location:")    
+    coordinates_dict= get_district_coordinates() #function get_district_coordinates(), get query coordinates from the API
+    map_district = map_plot(get_coordenates(coordinates_dict)) #function get_coordinates()transforms the data to be plotted
     folium_static(map_district)
-
-
-
-
-
-
-      
+    
+#page two: show Population and location by Neighborhood      
 if sidebar_selection =="Population and location by Neighborhood":
-    year = st.slider('Pick a number', 2013, 2017)                          
-    df = pd.DataFrame(get_all(year))
-    selection2 = st.selectbox('Elige distrito',['Ciutat Vella', 'Eixample', 'Sants-Montjuïc', 'Les Corts',
+    #Title and header image 
+    st.title('BARCELONA DASHBOARD')
+    st.image('./images/barcelona_5.png')
+
+    #slider for select data year
+    year = st.slider('Select data year:', 2013, 2017)  
+    df = pd.DataFrame(get_all(year)) #function get_all get query from the API
+
+    #selectbox for select a District, for then plot de population by Neighborhood
+    selection2 = st.selectbox('Select district',['Ciutat Vella', 'Eixample', 'Sants-Montjuïc', 'Les Corts',
     'Sarrià-Sant Gervasi', 'Gràcia', 'Horta-Guinardó', 'Nou Barris',
     'Sant Andreu', 'Sant Martí'] )
-    st.text("A continuación puedes ver la población de los diferentes Barrios de Barcelona y su ubicacion en el mapa")
+
+    #description of the results
+    st.text("Barcelona neighborhoods population by district:")
+    
+    #slider for select variable to stratify
     stratify = st.radio('Pick a stratify', [None,'Gender', 'Age'])
-    df_format = df_format_fixer(df)
+    
+    #transforms the data in the dataset to be plotted
+    df_format = df_format_fixer(df) 
     df_format_selection= df_format[df_format['District']==selection2]
-        
+    
+    #data plot   
     fig = bar_plot(df_format_selection,a="Neighborhood",b="Population",c=stratify)
-    plt.savefig("Neighborhood.png")
     st.pyplot(fig)
     
-
+    #data download
     st.download_button('Download Neighborhood data', convert_df(df_format),file_name="Neighborhood.csv")
-    with open("Neighborhood.png", "rb") as file:
+    with open("picture.png", "rb") as file:
         btn = st.download_button(
         label="Download graph",
         data=file,
         file_name="Neighborhood.png",
         )
 
-
-
+    #map plot
+    st.text("Barcelona neighborhoods location by District:")
     get_coordinates_neighborhood= get_neighborhood_coordinates()
+    
+    # match neiborhood with select district
     match_coordinates_neighborhood = []
     coordinates_neighborhood = get_coordenates(get_coordinates_neighborhood)
     for i in coordinates_neighborhood:
         if i["Name"] in list(list(df_format_selection["Neighborhood"].unique())):
             match_coordinates_neighborhood.append(i)
     map_neighborhood = map_plot(match_coordinates_neighborhood)
+    #plot
     folium_static(map_neighborhood)
 
-
-
-
-        
+      
 if sidebar_selection == "Transports":
     st.title('BARCELONA DASHBOARD')
     st.image('./barcelona_5.png')
