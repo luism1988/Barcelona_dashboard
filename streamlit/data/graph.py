@@ -7,8 +7,8 @@ import seaborn as sns
 
 
 def bar_plot(df,a:str,b:str,c= None): #Nota: esta funcion no la he probado, la cree en el avion.
-    plt.figure(figsize=(20,6))
-    fig, ax = plt.subplots()
+    plt.figure(figsize=(6,6))
+    fig, ax = plt.subplots(figsize=(5,5))
     sns.barplot(data=df, x = a ,y = b, hue=c, estimator=sum) # tambien se puede estratificar por genero hue="Gender"
     plt.xticks(rotation=70)
     plt.ylabel('Population')

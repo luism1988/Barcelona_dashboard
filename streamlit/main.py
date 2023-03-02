@@ -9,7 +9,7 @@ from streamlit_folium import folium_static
 
 # create sidebar with four "pages": ["Population and location by District","Population and location by Neighborhood" ,"Transports","About"]
 with st.sidebar:
-    sidebar_selection = st.radio('Navigation', ["Population and location by District","Population and location by Neighborhood" ,"Transports","About"])
+    sidebar_selection = st.radio('Navigation', ["Population and location by District","Population and location by Neighborhood" ,"About"])#"Transports"
 
 #page one: show Population and location by District
 if sidebar_selection == "Population and location by District":
@@ -100,7 +100,7 @@ if sidebar_selection =="Population and location by Neighborhood":
     #plot
     folium_static(map_neighborhood)
 
-      
+"""      
 if sidebar_selection == "Transports":
     st.title('BARCELONA DASHBOARD')
     st.image('./barcelona_5.png')
@@ -110,6 +110,6 @@ if sidebar_selection == "About":
     st.title('BARCELONA DASHBOARD')
     st.image('./barcelona_5.png')
     st.text("En construcción")
-    
+    """
 
 
