@@ -28,7 +28,7 @@ En su desarrollo se emplearon diferentes stacks tecnológicos como Python, Panda
 
 
 <p align="center">
-  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/1.png?raw=true" width="400">
+  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/1.png?raw=true" width="600">
 </p>
      
 1.2- Población y ubicación por distrito:
@@ -50,13 +50,13 @@ En su desarrollo se emplearon diferentes stacks tecnológicos como Python, Panda
 - 1.2.4- Grafico de población por distrito estratificado por genero:
 
 <p align="center">
-  <img src="-" width="400">
+  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/11.png?raw=true" width="400">
 </p>
 
 - 1.2.5- Grafico de población por distrito estratificado por edad:
 
 <p align="center">
-  <img src="-" width="400">
+  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/12.png?raw=true" width="400">
 </p>
 
 - 1.2.6- Grafico ubicación de los distritos:
@@ -68,7 +68,7 @@ En su desarrollo se emplearon diferentes stacks tecnológicos como Python, Panda
 - 1.2.7- Boton de descarga de los datos en formato csv:
 
 <p align="center">
-  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/boton%20de%20descarga%20distritos.png?raw=true" width="400">
+  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/boton%20de%20descarga%20distritos.png?raw=true" width="100">
 </p>
 
 1.3- Población y ubicación por barrio:
@@ -79,13 +79,13 @@ En su desarrollo se emplearon diferentes stacks tecnológicos como Python, Panda
 - 1.3.3- Punto “C”: Podemos seleccionar la variable de es traficación (Ninguna, género o edad).
 
 <p align="center">
-  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/Sin%20t%C3%ADtulo.png?raw=true" width="400">
+  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/Sin%20t%C3%ADtulo.png?raw=true" width="300">
 </p>
 
 - 1.3.4- Grafico de población por barrios:
 
 <p align="center">
-  <img src="-" width="400">
+  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/Captura%20de%20pantalla%202023-03-02%20231321.png?raw=true" width="400">
 </p>
 
 - 1.3.5-Grafico ubicación de los barrios que conforman un distrito:
@@ -97,6 +97,6 @@ En su desarrollo se emplearon diferentes stacks tecnológicos como Python, Panda
 - 1.3.6-Boton de descarga de los datos en formato csv:
 
 <p align="center">
-  <img src="-" width="400">
+  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/boton%20de%20descarga%20barrios.png?raw=true" width="150">
 </p>
 
