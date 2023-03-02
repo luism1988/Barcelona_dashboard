@@ -16,8 +16,7 @@ if sidebar_selection == "Population and location by District":
 
     #Title and header image 
     st.markdown("<h1 style='text-align: center; color: black;'>BARCELONA DASHBOARD</h1>", unsafe_allow_html=True)
-
-    st.image('./images/barcelona_5.png')
+    st.image('./img/barcelona_5.png')
 
     #slider for select data year
     year = st.slider('Select data year:', 2013, 2017)
@@ -34,7 +33,7 @@ if sidebar_selection == "Population and location by District":
     st.pyplot(fig)
     
     #data download
-    st.download_button('Download data', convert_df(df_format),file_name="District_data.csv")
+    st.download_button('Download district data', convert_df(df_format),file_name="District_data.csv")
     with open("picture.png", "rb") as file:
         btn = st.download_button(
         label="Download graph",
@@ -51,8 +50,8 @@ if sidebar_selection == "Population and location by District":
 #page two: show Population and location by Neighborhood      
 if sidebar_selection =="Population and location by Neighborhood":
     #Title and header image 
-    st.title('BARCELONA DASHBOARD')
-    st.image('./images/barcelona_5.png')
+    st.markdown("<h1 style='text-align: center; color: black;'>BARCELONA DASHBOARD</h1>", unsafe_allow_html=True)
+    st.image('./img/barcelona_5.png')
 
     #slider for select data year
     year = st.slider('Select data year:', 2013, 2017)  
@@ -78,7 +77,7 @@ if sidebar_selection =="Population and location by Neighborhood":
     st.pyplot(fig)
     
     #data download
-    st.download_button('Download Neighborhood data', convert_df(df_format),file_name="Neighborhood.csv")
+    st.download_button('Download neighborhood data', convert_df(df_format),file_name="Neighborhood.csv")
     with open("picture.png", "rb") as file:
         btn = st.download_button(
         label="Download graph",
@@ -102,12 +101,12 @@ if sidebar_selection =="Population and location by Neighborhood":
 
 """      
 if sidebar_selection == "Transports":
-    st.title('BARCELONA DASHBOARD')
+    st.markdown("<h1 style='text-align: center; color: black;'>BARCELONA DASHBOARD</h1>", unsafe_allow_html=True)
     st.image('./barcelona_5.png')
     st.text("En construcción")
 
 if sidebar_selection == "About":
-    st.title('BARCELONA DASHBOARD')
+    st.markdown("<h1 style='text-align: center; color: black;'>BARCELONA DASHBOARD</h1>", unsafe_allow_html=True)
     st.image('./barcelona_5.png')
     st.text("En construcción")
     """
