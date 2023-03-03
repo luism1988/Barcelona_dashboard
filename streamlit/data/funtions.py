@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+from fpdf import FPDF
 
 def df_format_fixer(df):
     distritos = []
@@ -37,3 +38,49 @@ def get_coordenates(list):
 @st.cache_data
 def convert_df(df):
     return df.to_csv().encode('utf-8') 
+
+def pdf_creator_district(img,df):
+
+    pdf = FPDF(orientation = 'P', unit = 'mm', format='A4')
+    pdf.add_page()
+    pdf.set_font('Arial', 'B', 16)
+    pdf.cell(25, 10, txt="BARCELONA DASHBOARD")
+    pdf.set_font('Arial', 'B', 12)
+    pdf.image('./img/barcelona_5.png',x=20, y=30, w=150, h=28)
+    pdf.text(x=25, y=70,txt="Barcelona population by districts:")
+    pdf.image(img,x=20,y=75,w=100,h=100)
+    pdf.set_font('Arial',"", 12)
+    # Cambiar posición de la tabla
+    pdf.set_xy(25, 190)
+    # Agregar encabezado de la tabla
+    pdf.cell(40, 10, 'District', 1)
+    pdf.cell(40, 10, 'Population', 1)
+    pdf.ln()
+    for index, row in df.iterrows():
+        pdf.cell(40, 10, str(row['District']), 1)
+        pdf.cell(40, 10, str(row['Population']), 1)
+        pdf.ln()
+
+def pdf_creator_neighborhood(img,df):
+
+    pdf = FPDF(orientation = 'P', unit = 'mm', format='A4')
+    pdf.add_page()
+    pdf.set_font('Arial', 'B', 16)
+    pdf.cell(25, 10, txt="BARCELONA DASHBOARD")
+    pdf.set_font('Arial', 'B', 12)
+    pdf.image('./img/barcelona_5.png',x=20, y=30, w=150, h=28)
+    pdf.text(x=25, y=70,txt="Barcelona neighborhoods population by district:")
+    pdf.image(img,x=20,y=75,w=100,h=100)
+    pdf.set_font('Arial',"", 12)
+    # Cambiar posición de la tabla
+    pdf.set_xy(25, 190)
+    # Agregar encabezado de la tabla
+    pdf.cell(40, 10, 'Neighborhood', 1)
+    pdf.cell(40, 10, 'Population', 1)
+    pdf.ln()
+    for index, row in df.iterrows():
+        pdf.cell(40, 10, str(row['Neighborhood']), 1)
+        pdf.cell(40, 10, str(row['Population']), 1)
+        pdf.ln()
+
+

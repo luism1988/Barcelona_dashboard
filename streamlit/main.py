@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
+from fpdf import FPDF
 
 from data.get_data import get_all, get_district_coordinates , get_neighborhood_coordinates
 from data.graph import  map_plot, bar_plot
-from data.funtions import df_format_fixer, get_coordenates,convert_df
+from data.funtions import df_format_fixer, get_coordenates, convert_df, pdf_creator_district, pdf_creator_neighborhood
 from streamlit_folium import folium_static
 
 
@@ -27,13 +28,18 @@ if sidebar_selection == "Population and location by District":
     st.text("Barcelona population by districts:")
     #slider for select variable to stratify
     stratify = st.radio('Stratify by:', [None,'Gender', 'Age'])
-
+    
     #data plot    
     fig= bar_plot(df_format,a="District",b="Population",c=stratify)
     st.pyplot(fig)
     
+    
     #data download
-    st.download_button('Download district data', convert_df(df_format),file_name="District_data.csv")
+    df_download = df_format.groupby("District").sum().reset_index()
+    st.table(df_download)
+    st.download_button('Download district data', convert_df(df_download),file_name="District_data.csv")
+
+   
     with open("picture.png", "rb") as file:
         btn = st.download_button(
         label="Download graph",
@@ -46,6 +52,17 @@ if sidebar_selection == "Population and location by District":
     coordinates_dict= get_district_coordinates() #function get_district_coordinates(), get query coordinates from the API
     map_district = map_plot(get_coordenates(coordinates_dict)) #function get_coordinates()transforms the data to be plotted
     folium_static(map_district)
+
+    
+
+    pdf_creator_district('picture.png',df_download)
+    with open('report.pdf', "rb") as file2:
+        btn = st.download_button(
+        label='Download report',
+        data = file2,
+        file_name="repo.pdf",
+        )
+
     
 #page two: show Population and location by Neighborhood      
 if sidebar_selection =="Population and location by Neighborhood":
@@ -77,7 +94,9 @@ if sidebar_selection =="Population and location by Neighborhood":
     st.pyplot(fig)
     
     #data download
-    st.download_button('Download neighborhood data', convert_df(df_format),file_name="Neighborhood.csv")
+    df_download = df_format_selection.groupby("Neighborhood").sum().reset_index()
+    st.table(df_download)
+    st.download_button('Download neighborhood data', convert_df(df_download),file_name="Neighborhood.csv")
     with open("picture.png", "rb") as file:
         btn = st.download_button(
         label="Download graph",
@@ -98,17 +117,22 @@ if sidebar_selection =="Population and location by Neighborhood":
     map_neighborhood = map_plot(match_coordinates_neighborhood)
     #plot
     folium_static(map_neighborhood)
+    pdf_creator_neighborhood('picture.png',df_download)
+    with open('report.pdf', "rb") as file2:
+        btn = st.download_button(
+        label='Download report',
+        data = file2,
+        file_name="repo.pdf",
+        )
+    
 
-"""      
-if sidebar_selection == "Transports":
-    st.markdown("<h1 style='text-align: center; color: black;'>BARCELONA DASHBOARD</h1>", unsafe_allow_html=True)
-    st.image('./barcelona_5.png')
-    st.text("En construcción")
+
+
 
 if sidebar_selection == "About":
     st.markdown("<h1 style='text-align: center; color: black;'>BARCELONA DASHBOARD</h1>", unsafe_allow_html=True)
-    st.image('./barcelona_5.png')
+    st.image('./img/barcelona_5.png')
     st.text("En construcción")
-    """
+    
 
 

@@ -4,7 +4,7 @@
 ## Descripción y objetivo:
 Barcelona Dashboard es un proyecto académico con el cual podemos visualizar a través de diagramas de barras, la población de Barcelona en sus diferentes distritos y barrios. También, podemos estratificar la población por el año del padrón municipal, género y edad de los habitantes. Y visualizar en el mapa la ubicación de distritos y barrios.
 
-El dataset ha sido descargado de: https://www.kaggle.com/datasets/xvivancos/barcelona-data-sets
+El dataset seleccionado ha sido descargado de: [Open Data BCN](https://www.kaggle.com/xvivancos/barcelona-data-sets)
 
 En su desarrollo se emplearon diferentes stacks tecnológicos como Python, Pandas, FastAPI, MongoDB y Streamlit (entre otros).
 
@@ -91,7 +91,7 @@ En su desarrollo se emplearon diferentes stacks tecnológicos como Python, Panda
 - 1.3.5-Grafico ubicación de los barrios que conforman un distrito:
 
 <p align="center">
-  <img src="-" width="400">
+  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/14.png?raw=true" width="400">
 </p>
 
 - 1.3.6-Boton de descarga de los datos en formato csv:

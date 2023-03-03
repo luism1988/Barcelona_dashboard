@@ -12,7 +12,8 @@ def bar_plot(df,a:str,b:str,c= None): #Nota: esta funcion no la he probado, la c
     sns.barplot(data=df, x = a ,y = b, hue=c, estimator=sum) # tambien se puede estratificar por genero hue="Gender"
     plt.xticks(rotation=70)
     plt.ylabel('Population')
-    plt.savefig("picture.png")
+    plt.tight_layout()
+    fig.savefig("picture.png",pad_inches=0.5)
     return fig
     
 def map_plot(dic):
