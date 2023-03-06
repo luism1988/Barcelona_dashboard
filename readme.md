@@ -100,3 +100,10 @@ En su desarrollo se emplearon diferentes stacks tecnológicos como Python, Panda
   <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/boton%20de%20descarga%20barrios.png?raw=true" width="150">
 </p>
 
+### 2-Flujo de los datos:
+<p align="center">
+  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/boton%20de%20descarga%20barrios.png?raw=true" width="150">
+</p>
+
+### 3-Proximos pasos:
+- 1-
