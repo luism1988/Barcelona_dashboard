@@ -2,16 +2,15 @@ import streamlit as st
 import pandas as pd
 from fpdf import FPDF
 
-
 from data.get_data import get_all, get_district_coordinates , get_neighborhood_coordinates
 from data.graph import  map_plot, bar_plot
 from data.funtions import df_format_fixer, get_coordenates, convert_df
 from streamlit_folium import folium_static
 
 
-# create sidebar with four "pages": ["Population and location by District","Population and location by Neighborhood" ,"Transports","About"]
+# create sidebar with two "pages": ["Population and location by District","Population and location by Neighborhood"]
 with st.sidebar:
-    sidebar_selection = st.radio('Navigation', ["Population and location by District","Population and location by Neighborhood" ,"About"])#"Transports"
+    sidebar_selection = st.radio('Navigation', ["Population and location by District","Population and location by Neighborhood"])#"Transports"
 
 #page one: show Population and location by District
 if sidebar_selection == "Population and location by District":
@@ -170,11 +169,4 @@ if sidebar_selection =="Population and location by Neighborhood":
         )
     
 
-
-
-
-if sidebar_selection == "About":
-    st.markdown("<h1 style='text-align: center; color: black;'>BARCELONA DASHBOARD</h1>", unsafe_allow_html=True)
-    st.image('./img/barcelona_5.png')
-    st.text("En construcción")
   
