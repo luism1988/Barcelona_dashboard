@@ -1,6 +1,4 @@
-#import plotly.io as pio
-#import plotly.graph_objs as go
-#import plotly_express as px
+
 import matplotlib.pyplot as plt
 import folium
 import seaborn as sns

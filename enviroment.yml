@@ -1,0 +1,20 @@
+name: barcelona_dashboard
+channels:
+  - defaults
+dependencies:
+  - pandas
+  - python
+  - pymongo
+  - python-dotenv
+  - os
+  - matplotlib
+  - seaborn
+  - streamlit
+  - plotly
+  - fastapi
+  - uvicorn
+  - plotly_express
+  - folium
+  - streamlit-folium
+  - fpdf
+prefix: /home/luism88/anaconda3/envs/barcelona_dashboard
