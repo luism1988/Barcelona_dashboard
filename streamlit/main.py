@@ -60,16 +60,23 @@ if sidebar_selection == "Population and location by District":
     st.pyplot(fig)
 
     #data download
-    
-    st.markdown("**Download data and image:**")
     df_download = df_format.groupby("District").sum().reset_index()
-    st.download_button('Download district data', convert_df(df_download),file_name="District_data.csv")
-    with open("picture.png", "rb") as file:
-        btn = st.download_button(
-        label="Download graph",
-        data=file,
-        file_name="District.png",
-        )
+    columns = st.columns(2)
+    with columns[0]:
+        st.markdown("**Download data:**")
+        st.download_button('Download district data', convert_df(df_download),file_name="District_data.csv")
+    with columns[1]:
+        st.markdown("**Download image:**")
+        with open("picture.png", "rb") as file:
+            btn = st.download_button(
+            label="Download graph",
+            data=file,
+            file_name="District.png",
+            )
+    
+
+    
+    
 
     #map plot   
     st.markdown("**Barcelona districts location:**")    
@@ -135,21 +142,26 @@ if sidebar_selection =="Population and location by Neighborhood":
     #transforms the data in the dataset to be plotted
     df_format = df_format_fixer(df) 
     df_format_selection= df_format[df_format['District']==selection2]
+    df_format_selection =df_format_selection.sort_values("District")
     
     #data plot   
     fig = bar_plot(df_format_selection,a="Neighborhood",b="Population",c=stratify)
     st.pyplot(fig)
     
     #data download
-    st.markdown("**Download data and image:**")
     df_download = df_format_selection.groupby("Neighborhood").sum().reset_index()
-    st.download_button('Download neighborhood data', convert_df(df_download),file_name="Neighborhood.csv")
-    with open("picture.png", "rb") as file:
-        btn = st.download_button(
-        label="Download graph",
-        data=file,
-        file_name="Neighborhood.png",
-        )
+    columns = st.columns(2)
+    with columns[0]:
+        st.markdown("**Download data:**")
+        st.download_button('Download neighborhood data', convert_df(df_download),file_name="Neighborhood.csv")
+    with columns[1]:
+        st.markdown("**Download image:**")
+        with open("picture.png", "rb") as file:
+            btn = st.download_button(
+            label="Download graph",
+            data=file,
+            file_name="Neighborhood.png",
+            )
 
     #map plot
     st.markdown("**Barcelona neighborhoods location by District:**")
