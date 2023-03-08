@@ -1,115 +1,109 @@
-
-# Barcelona Dashboard
 <p align="center">
-  <img src="img/barcelona_5.png" width="400">
+  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/barcelona_5.png?raw=true" width="400">
 </p>
 
-## Descripción y objetivo:
-Barcelona Dashboard es un proyecto académico con el cual podemos visualizar a través de diagramas de barras, la población de Barcelona en sus diferentes distritos y barrios. También, podemos estratificar la población por el año del padrón municipal, género y edad de los habitantes. Y visualizar en el mapa la ubicación de distritos y barrios.
+# Barcelona Dashboard
 
-El dataset seleccionado ha sido descargado de: [Open Data BCN](https://www.kaggle.com/xvivancos/barcelona-data-sets)
+## Description and objective:
+Barcelona Dashboard is an academic project where we can visualize, through bar charts, Barcelona populatio by districts and neighborhoods. Also, we can stratify the population by the year of the municipal register, gender and age of the poblation. And visualize on the map the location of districts and neighborhoods.
 
-En su desarrollo se emplearon diferentes stacks tecnológicos como Python, Pandas, FastAPI, MongoDB y Streamlit (entre otros).
+The  dataset has been selected and downloaded from: [Open Data BCN](https://www.kaggle.com/xvivancos/barcelona-data-sets)
 
-### Los pasos para realizar este proyecto fueron:
-- 1 Selección del dataset de Barcelona entre varias opciones.
-- 2 Exploración del dataset y tratamiento de datos duplicados y nulos.
-- 3 Carga del dataset en MongoDB Atlas.
-- 4 Creación de la API:
-    - Conexión con MongoDB.
-    - Creación de la Main.
-    - Creación/definición de los routers y endpoints.
-- 5 Creación del Streamlit:
-    - Conexión con la API
-    - Creación y parametrización de las visualizaciones.
+In the developing, different technological stacks were used like Python, Pandas, FastAPI, MongoDB and Streamlit (among others).
+
+### The steps towards developing the project is:
+- 1 Select Barcelona dataset.
+- 2 Dataset exploration  and treatment of duplicate and null data.
+- 3 Dataset load in MongoDB Atlas( Previously treatment).
+- 4 -API creation (using FastAPI):
+     - Connection with MongoDB.
+     - Definition of routers and endpoints.
+- 5 Streamlit creation:
+     - API connection.
+     - Creation and parameterization of visualizations.
 
 
-### 1-Descripción del Dashboard
+### 1-Dashboard description
 
-1.1 -Navegación:
-    En la barra lateral podemos seleccionar entre visualizar la población y ubicación por distrito.
-
+1.1 -Navigation:
+        At sidebar you can select between seeing the population and location by district or neighborhood.
 
 <p align="center">
   <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/1.png?raw=true" width="600">
 </p>
      
-1.2- Población y ubicación por distrito:
+1.2- Population and location by district:
 
-- 1.2.1- Punto “A”: En la parte superior podemos seleccionar el año de visualización.
+- 1.2.1- A: you can select the year of display.
 
-- 1.2.2- Punto “B”: Podemos seleccionar la variable de es traficación (Ninguna, género o edad)
+- 1.2.2- B: you can select the stratification variable (None, gender or age)
 
 <p align="center">
   <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/db2.png?raw=true" width="400">
 </p>
 
-- 1.2.3- Grafico de población por distrito:
+- 1.2.3- Population graph by district:
 
 <p align="center">
   <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/db4.png?raw=true" width="400">
 </p>
 
-- 1.2.4- Grafico de población por distrito estratificado por genero:
+- 1.2.4- District population stratified by gender:
 
 <p align="center">
   <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/11.png?raw=true" width="400">
 </p>
 
-- 1.2.5- Grafico de población por distrito estratificado por edad:
+- 1.2.5- District population stratified by age:
 
 <p align="center">
   <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/12.png?raw=true" width="400">
 </p>
 
-- 1.2.6- Grafico ubicación de los distritos:
+- 1.2.6- Districts location graph:
 
 <p align="center">
   <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/db6.png?raw=true" width="400">
 </p>
 
-- 1.2.7- Boton de descarga de los datos en formato csv:
+- 1.2.7- Data download button (.csv):
 
 <p align="center">
   <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/boton%20de%20descarga%20distritos.png?raw=true" width="100">
 </p>
 
-1.3- Población y ubicación por barrio:
-- 1.3.1- Punto “A”: En la parte superior podemos seleccionar el año de visualización.
+1.3- Population and location by neighborhood:
+- 1.3.1- A: you can select the year of display.
 
-- 1.3.2- Punto “B”: Seleccionar el distrito para visualizar la población y ubicación de los barrios que componen a éste.
+- 1.3.2- B: Select a district to view the population and location of the neighborhoods that make up it.
 
-- 1.3.3- Punto “C”: Podemos seleccionar la variable de es traficación (Ninguna, género o edad).
+- 1.3.3- C: you can select the stratification variable (None, gender or age).
 
 <p align="center">
   <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/Sin%20t%C3%ADtulo.png?raw=true" width="300">
 </p>
 
-- 1.3.4- Grafico de población por barrios:
+- 1.3.4- Population graph by neighborhood:
 
 <p align="center">
   <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/Captura%20de%20pantalla%202023-03-02%20231321.png?raw=true" width="400">
 </p>
 
-- 1.3.5-Grafico ubicación de los barrios que conforman un distrito:
+- 1.3.5-Neighborhood location graph:
 
 <p align="center">
   <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/14.png?raw=true" width="400">
 </p>
 
-- 1.3.6-Boton de descarga de los datos en formato csv:
+- 1.3.6-Data download button (.csv):
 
 <p align="center">
   <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/boton%20de%20descarga%20barrios.png?raw=true" width="150">
 </p>
 
-### 2-Flujo de los datos:
+### 2-Data flow:
 <p align="center">
   <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/img_readme/flujo.png?raw=true" width="600">
 </p>
 
-### 3-Posibles mejoras:
-- 1-Corrección de la tabla en reporte pdf.
-- 2-Creación de usuario y contraseña para login.
-- 3-Añadir y modificar datos con previo login.
-- 4- Crear contenedor Docker y hacer deploy de los servicios en el cloud.
+
