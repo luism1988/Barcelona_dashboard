@@ -22,6 +22,31 @@ In the developing, different technological stacks were used like Python, Pandas,
      - API connection.
      - Creation and parameterization of visualizations.
 
+### How to use:
+- 1-Access the directory:
+
+  		 ../barcelona_dashboard
+
+- 2-Install system requirements:
+
+  		 $ pip install -r requirements.txt
+
+- 3-Access the directory:
+
+      ../barcelona_dashboard/api
+
+- 4-Run API:
+
+      $ uvicorn main:app
+
+- 5-Access the directory:
+
+      ../barcelona_dashboard/streamlit
+
+- 6-Run main.py:
+
+      $ streamlit run main.py
+
 
 ### 1-Dashboard description
 
