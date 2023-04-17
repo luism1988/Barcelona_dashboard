@@ -4,6 +4,10 @@
 
 # Barcelona Dashboard
 
+<p align="center">
+  <img src="https://github.com/luism1988/Barcelona_dashboard/blob/main/streamlit/img/gif1.gif?raw=true" width="600">
+</p>
+
 ## Description and objective:
 Barcelona Dashboard is an academic project where we can visualize, through bar charts, Barcelona populatio by districts and neighborhoods. Also, we can stratify the population by the year of the municipal register, gender and age of the poblation. And visualize on the map the location of districts and neighborhoods.
 
